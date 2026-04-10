@@ -1,0 +1,6 @@
+La "Watchlist" :Au lieu de tout recevoir, tu crées une liste d'animés favoris et le bot ne t'alerte que pour ceux-là.
+
+Le Compte à rebours : L'API donne l'heure de sortie. Le bot peut te dire : "Sortie dans 45 minutes !"
+
+Gestion des Langues : Pouvoir choisir si tu veux être alerté uniquement pour la VF, uniquement la VOSTFR, ou les deux.
+Logs de Performance : Créer un fichier bot.log qui note chaque erreur ou chaque succès pour vérifier que GitHub travaille bien.

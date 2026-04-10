@@ -1,0 +1,37 @@
+name: Franime Bot Autonome
+
+on:
+  schedule:
+    - cron: '0 * * * *' # S'exécute toutes les heures (pile)
+  workflow_dispatch:      # Te permet de cliquer sur un bouton pour le lancer manuellement
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write    # Crucial pour que le bot puisse sauvegarder historique.txt
+
+    steps:
+      - name: Récupérer le code
+        uses: actions/checkout@v4
+
+      - name: Installer Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Installer les dépendances
+        run: pip install requests
+
+      - name: Lancer le Bot
+        run: python main.py
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+
+      - name: Sauvegarder l'historique
+        run: |
+          git config --global user.name "Github Actions Bot"
+          git config --global user.email "actions@github.com"
+          git add historique.txt
+          git commit -m "💾 MAJ Historique [skip ci]" || echo "Aucun changement"
+          git push

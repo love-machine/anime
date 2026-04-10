@@ -5,7 +5,7 @@ from datetime import datetime, timedelta
 
 class FRanime:
     def __init__(self):
-        self.WEBHOOK = "https://discord.com/api/webhooks/1492242729055420738/DedFigvnS5hrVP8HlpONNRYHkvr6cWey1TxVALigzjzPt-eehPL1thaWlUuj-kWcO21l"
+        self.WEBHOOK = os.getenv("DISCORD_WEBHOOK")
         self.url = "https://api.franime.fr/api/calendrier_data"
         self.headers = {'User-Agent': 'Mozilla/5.0'}
         

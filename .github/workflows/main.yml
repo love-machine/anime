@@ -30,7 +30,7 @@ jobs:
           cat requirements.txt || echo "Fichier introuvable"
 
       - name: Lancer le Bot
-        run: python FRanime.py
+        run: python franime.py
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
 
